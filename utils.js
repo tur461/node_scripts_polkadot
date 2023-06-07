@@ -60,6 +60,15 @@ const curl = function(meth, params) {
     return new Promise((r, j) => request(o, (e, rs, b) => e ? j(e) : r(b)));   
 }
 
+const rtrim = v => {
+    const ar = toArr(v.toString());
+    for(let l = ar.length-1; l > -1; --l)
+        if(ar[l] !== '0') return v.slice(0, l+1);
+    return '';
+}
+
+const hex2int = h => parseInt(h, 16);
+
 module.exports = {
     jo,
     log,
@@ -68,8 +77,10 @@ module.exports = {
     keys,
     curl,
     isObj,
+    rtrim,
     isStr,
     isNum,
+    hex2int,
     entries,
     mapToHex,
     runShellCmd,
