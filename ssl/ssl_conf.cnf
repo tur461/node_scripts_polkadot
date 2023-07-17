@@ -1,0 +1,21 @@
+[req]
+distinguished_name = req_localhost
+x509_extensions = v3_req
+prompt = no
+
+[req_distinguished_name]
+C = India
+ST = Punjab
+L = Mohali
+O = Antier
+OU = Blockchain
+CN = localhost
+
+[v3_req]
+keyUsage = keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = 8.8.8.8
+DNS.2 = 8.8.4.4
